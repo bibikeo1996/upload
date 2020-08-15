@@ -3,7 +3,7 @@ var multer  =   require('multer');
 const puppeteer = require('puppeteer');
 var excel = require('excel4node');
 var app     =   express();
-var port = process.env.PORT || 3000;
+//var port = process.env.PORT || 3000;
 
 function exportToExcel(data) {
     // Create a new instance of a Workbook class
@@ -106,6 +106,4 @@ app.post('/upload',function(req,res){
     });
 });
 
-app.listen(port,function(){
-    console.log("Working on port 3000");
-});
+app.listen(process.env.PORT || 3000);
