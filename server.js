@@ -98,7 +98,7 @@ app.post('/upload',function(req,res){
 			    }
 			    exportToExcel(arrInfo);
 			    res.end("<a href='" + __dirname + "/public/Linkcholon.xlsx'>Download File</a>");
-			    await browser.close();
+			    //await browser.close();
 			})();
         } // end else
         // var name = req.file.originalname;
