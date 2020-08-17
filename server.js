@@ -60,7 +60,7 @@ app.post('/upload',function(req,res){
         if(err) {
             return res.end("Error uploading file.");
         }else{ // open else
-        	var file = "./uploads/" + req.file.originalname;
+        	var file = "/uploads/" + req.file.originalname;
         	(async () => {
 			    const browser = await puppeteer.launch({ headless: true })
 			    const page = await browser.newPage()
