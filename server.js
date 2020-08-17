@@ -62,7 +62,7 @@ app.post('/upload',function(req,res){
         }else{ // open else
         	var file = "./uploads/" + req.file.originalname;
         	(async () => {
-			    const browser = await puppeteer.launch({ headless: false })
+			    const browser = await puppeteer.launch({ headless: true })
 			    const page = await browser.newPage()
 			    const urls = getLink(file);
 			    console.log(urls);
