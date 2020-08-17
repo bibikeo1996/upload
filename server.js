@@ -69,29 +69,30 @@ app.post('/upload',function(req,res){
 			    let arrInfo = [];
 			    for (let i = 0; i < urls.length; i++) {
 			        try {
-			            await page.goto("https://dienmaycholon.vn/tu-khoa/"+urls[i], { timeout: 300000 });
-			            const info = await page.evaluate(() => {
-			                // let checkweb = document.querySelector(".themNoel")
-			                let checkweb = document.querySelector(".content_search")
-			                if (checkweb !== null) {
-			                    const checklink = document.querySelector(".item_product .pro_infomation a")
-			                    const link = document.querySelector(checklink !== null ? ".item_product .pro_infomation a" : ".khongcoclass");
-			                    return {
-			                        //...data,
-			                        link: link ? "https://dienmaycholon.vn"+link.getAttribute('href') : "Not found",
-			                    }
+					res.write(urls[i]);
+// 			            await page.goto("https://dienmaycholon.vn/tu-khoa/"+urls[i], { timeout: 300000 });
+// 			            const info = await page.evaluate(() => {
+// 			                // let checkweb = document.querySelector(".themNoel")
+// 			                let checkweb = document.querySelector(".content_search")
+// 			                if (checkweb !== null) {
+// 			                    const checklink = document.querySelector(".item_product .pro_infomation a")
+// 			                    const link = document.querySelector(checklink !== null ? ".item_product .pro_infomation a" : ".khongcoclass");
+// 			                    return {
+// 			                        //...data,
+// 			                        link: link ? "https://dienmaycholon.vn"+link.getAttribute('href') : "Not found",
+// 			                    }
 
-			                }
+// 			                }
 
-			                return {
-			                    link: "https://dienmaycholon.vn/tu-khoa/khong-tim-thay"
-			                };
+// 			                return {
+// 			                    link: "https://dienmaycholon.vn/tu-khoa/khong-tim-thay"
+// 			                };
 
-			            })
-			            if (info) {
-			                arrInfo.push(info)
-			                console.log(info)
-			            }
+// 			            })
+// 			            if (info) {
+// 			                arrInfo.push(info)
+// 			                console.log(info)
+// 			            }
 			        } catch (err) {
 			            console.log("Có lỗi xảy ra", err);
 			        }
