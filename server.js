@@ -65,7 +65,7 @@ app.post('/upload',function(req,res){
 			    const browser = await puppeteer.launch({ headless: true })
 			    const page = await browser.newPage()
 			    const urls = getLink(file);
-			    console.log(urls);
+			    res.write(urls);
 			    let arrInfo = [];
 			    for (let i = 0; i < urls.length; i++) {
 			        try {
@@ -97,7 +97,7 @@ app.post('/upload',function(req,res){
 			            console.log("Có lỗi xảy ra", err);
 			        }
 			    }
-			    exportToExcel(arrInfo);
+			    //exportToExcel(arrInfo);
 			    res.end("<a href='" + __dirname + "/public/Linkcholon.xlsx'>Download File</a>");
 			    //await browser.close();
 			})();
